@@ -2,6 +2,7 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import getCenter from 'geolib/es/getCenter'
 import { useState } from 'react'
 import { Result } from 'postcss'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 function Map({ searchResults }) {
   const [selectedLocation, setSelectedLocation] = useState({})
@@ -31,7 +32,7 @@ function Map({ searchResults }) {
       mapStyle="mapbox://styles/lilyfurn/cl2j6q0uj000z14kdw5fw9lo3"
       mapboxAccessToken={process.env.mapbox_key}
       {...viewport}
-      onViewportChange={(nextViewport) => setViewport(nextViewport)}
+      
       onMove={(evt) => setViewport(evt.viewport)}
     >
       {searchResults.map((result) => (
